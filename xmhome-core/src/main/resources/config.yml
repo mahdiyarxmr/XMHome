@@ -1,0 +1,109 @@
+# XMHome Configuration
+general:
+  language: en
+  auto-detect-language: false
+  storage: SQLITE # SQLITE or MYSQL
+  debug: false
+
+database:
+  mysql:
+    host: localhost
+    port: 3306
+    database: xmhome
+    username: root
+    password: ""
+    pool-size: 10
+    use-ssl: false
+
+compatibility:
+  auto-detect: true
+
+homes:
+  first-home-free: true
+  default-limit: 3
+  allow-custom-sets: true
+  max-home-sets: 5
+  max-name-length: 24
+  min-name-length: 1
+  default-set-name: "Main"
+  default-home-prefix: "home"
+  max-shared-users: 10
+  disabled-worlds:
+    - "example_disabled_world"
+  per-world-limits:
+    enabled: false
+    limits:
+      world_nether: 2
+      world_the_end: 1
+
+economy:
+  enabled: true
+  provider: VAULT
+  currency-symbol: "$"
+  first-home-free: true
+  base-price: 1000.0
+  price-multiplier: 1.5
+  max-price: -1
+  rounding: HALF_UP # DOWN, UP, HALF_UP
+  charge-on-create: true
+  charge-on-duplicate: true
+  per-set-pricing:
+    enabled: false
+    sets:
+      Main:
+        first-home-free: true
+        base-price: 1000.0
+        price-multiplier: 1.5
+        max-price: -1
+      Nether:
+        first-home-free: false
+        base-price: 500.0
+        price-multiplier: 2.0
+        max-price: -1
+  per-world-pricing:
+    enabled: false
+    worlds:
+      world:
+        first-home-free: true
+        base-price: 1000.0
+        price-multiplier: 1.5
+      world_nether:
+        first-home-free: false
+        base-price: 2000.0
+        price-multiplier: 2.0
+      world_the_end:
+        first-home-free: false
+        base-price: 5000.0
+        price-multiplier: 2.0
+
+teleport:
+  enabled: true
+  delay: 5
+  cooldown: 30
+  cancel-on-move: true
+  cancel-on-damage: true
+  safe-location: true
+  cross-world: true
+  cross-dimension: true
+  per-world-cooldowns:
+    enabled: false
+    worlds:
+      world_the_end: 60
+
+protection:
+  make-home-safe: true
+  griefprevention:
+    enabled: true
+    require-claim-for-safe: false
+
+gui:
+  enabled: true
+  animations: true
+  sounds: true
+  particles: true
+  default-theme: PURPLE
+
+performance:
+  async-database: true
+  cache-enabled: true
+  animation-particle-limit: 30

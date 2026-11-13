@@ -1,0 +1,151 @@
+name: XMHome
+version: 1.0.0
+main: ir.mahdiyarxmr.xmhome.XMHome
+api-version: '1.13'
+author: MahdiyarXMR
+description: Premium Minecraft Home Management Plugin with Multiple Home Sets, Economy, and GUI
+softdepend:
+  - Vault
+  - GriefPrevention
+  - LuckPerms
+  - PlaceholderAPI
+  - Multiverse-Core
+
+commands:
+  sethome:
+    description: Create a new home
+    usage: /sethome [name] or /sethome <set> <name>
+    aliases: [sh, createhome]
+    permission: xmhome.sethome
+  home:
+    description: Teleport to a home or manage homes
+    usage: /home [name|duplicate|copycoords|delete|info|favorite]
+    aliases: [h]
+    permission: xmhome.home
+  homes:
+    description: Open the XMHome GUI
+    usage: /homes
+    aliases: [homelist, homesgui]
+    permission: xmhome.homes
+  delhome:
+    description: Delete a home
+    usage: /delhome <name>
+    aliases: [rmhome, deletehome]
+    permission: xmhome.delete
+  homesets:
+    description: Open Home Sets GUI or list sets
+    usage: /homesets
+    aliases: [hsets]
+    permission: xmhome.use
+  homeset:
+    description: Manage Home Sets
+    usage: /homeset <create|delete|rename|select|list>
+    aliases: [hset]
+    permission: xmhome.use
+  homecoords:
+    description: Display or copy home coordinates
+    usage: /homecoords <name>
+    aliases: [hcoords]
+    permission: xmhome.copycoords
+  homeshare:
+    description: Share a home with another player
+    usage: /homeshare <home> <player> [level] | /homeshare list
+    aliases: [hshare]
+    permission: xmhome.share
+  homeunshare:
+    description: Revoke home sharing from a player
+    usage: /homeunshare <home> <player>
+    aliases: [hunshare]
+    permission: xmhome.share
+  homeinfo:
+    description: View detailed information about a home
+    usage: /homeinfo <name>
+    aliases: [hinfo]
+    permission: xmhome.use
+  homefavorite:
+    description: Toggle favorite status of a home
+    usage: /homefavorite <name>
+    aliases: [hfav]
+    permission: xmhome.favorite
+  homeadmin:
+    description: Open the XMHome Admin GUI
+    usage: /homeadmin
+    aliases: [hadmin]
+    permission: xmhome.admin.gui
+  xmhome:
+    description: Main XMHome administration command
+    usage: /xmhome <reload|version|debug>
+    permission: xmhome.admin
+
+permissions:
+  xmhome.use:
+    description: Basic XMHome usage
+    default: true
+  xmhome.sethome:
+    description: Create homes
+    default: true
+  xmhome.home:
+    description: Teleport to homes
+    default: true
+  xmhome.homes:
+    description: Open Homes GUI
+    default: true
+  xmhome.homeset.create:
+    description: Create custom home sets
+    default: true
+  xmhome.homeset.delete:
+    description: Delete custom home sets
+    default: true
+  xmhome.homeset.manage:
+    description: Manage home sets
+    default: true
+  xmhome.delete:
+    description: Delete own homes
+    default: true
+  xmhome.duplicate:
+    description: Duplicate own homes
+    default: true
+  xmhome.copycoords:
+    description: Copy home coordinates
+    default: true
+  xmhome.share:
+    description: Share homes with other players
+    default: true
+  xmhome.visit:
+    description: Visit shared homes
+    default: true
+  xmhome.favorite:
+    description: Favorite homes
+    default: true
+  xmhome.admin:
+    description: Full admin access
+    default: op
+    children:
+      xmhome.admin.reload: true
+      xmhome.admin.gui: true
+      xmhome.admin.delete: true
+      xmhome.bypass.cooldown: true
+      xmhome.bypass.delay: true
+      xmhome.economy.bypass: true
+      xmhome.limit.unlimited: true
+  xmhome.admin.reload:
+    description: Reload XMHome configuration
+    default: op
+  xmhome.admin.gui:
+    description: Open Admin GUI
+    default: op
+  xmhome.admin.delete:
+    description: Delete any player's home
+    default: op
+  xmhome.bypass.cooldown:
+    description: Bypass teleport cooldown
+    default: op
+  xmhome.bypass.delay:
+    description: Bypass teleport delay
+    default: op
+  xmhome.economy.bypass:
+    description: Bypass economy home creation charges
+    default: op
+  xmhome.limit.unlimited:
+    description: Unlimited homes
+    default: op
