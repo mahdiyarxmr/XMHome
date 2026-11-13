@@ -97,6 +97,11 @@ public class XMHome extends JavaPlugin implements Listener {
         getCommand("homefavorite").setExecutor(new HomeFavoriteCommand(this));
         getCommand("homeadmin").setExecutor(new HomeAdminCommand(this));
         getCommand("xmhome").setExecutor(new XMHomeCommand(this));
+
+        HomeTabCompleter tabCompleter = new HomeTabCompleter(this);
+        for (String cmd : new String[]{"home", "delhome", "homeset", "homecoords", "homeshare", "homeunshare", "homeinfo", "homefavorite", "xmhome"}) {
+            getCommand(cmd).setTabCompleter(tabCompleter);
+        }
     }
 
     @EventHandler
